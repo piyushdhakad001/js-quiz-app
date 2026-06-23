@@ -83,7 +83,7 @@ main{
 
 .container{
    background: rgb(239, 208, 208);
-   width: 90%;
+   width: 50%;
    box-sizing: border-box;
     border-radius: 5px;
    padding: 5px;  
@@ -140,7 +140,9 @@ main{
   .start-quiz{
     font-size: medium;
   }
-  
+  .container{
+     width: 90%;
+  }
   .container .question, .option{
     font-size: x-small;
     font-weight: 600;
