@@ -117,3 +117,16 @@ main{
   cursor: pointer;
 }
 
+.container button{
+  all: unset;
+  padding: 5px;
+  font-weight: bold;
+ background: rgb(96, 96, 156);
+ border-radius: 5px;
+ cursor: pointer;
+ 
+}
+.container .nextButton{
+  
+  margin-left: 20px;
+}
