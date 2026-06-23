@@ -31,6 +31,8 @@ const startQuiz = document.querySelector(".start-quiz");
 
 let count = 0;
 let userAnswer = {};
+let correctAnswer = 0;
+let wrongAnswer = 0;
 
 const savedCount = localStorage.getItem("count");
 const savedAnswers = localStorage.getItem("userAnswer");
@@ -130,4 +132,35 @@ objQue[count].option.forEach((opt) => {
 
   questionElement.appendChild(previousButton);
   questionElement.appendChild(nextButton);
+}
+
+// -----------Result Show------------
+
+function showResult() {
+  localStorage.removeItem("count");
+  localStorage.removeItem("userAnswer");
+  container.innerHTML = "";
+
+  objQue.forEach((q, i) => {
+    if (userAnswer[i] === q.Answer) {
+      correctAnswer++;
+    } else {
+      wrongAnswer++;
+    }
+  });
+
+  
+  localStorage.removeItem("count");
+  localStorage.removeItem("userAnswer");
+
+  const correctCounter = document.createElement("p");
+  correctCounter.classList.toggle('correctCounter');
+  const wrongCounter = document.createElement("p");
+   wrongCounter.classList.toggle('correctCounter');
+
+  wrongCounter.textContent = `Wrong: ${wrongAnswer}`;
+  correctCounter.textContent = `Correct ${correctAnswer}`;
+
+  container.appendChild(correctCounter);
+  container.appendChild(wrongCounter);
 }
