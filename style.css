@@ -66,7 +66,6 @@ header p{
    border-radius: 5px;
    font-size: xx-large;
    font-weight: bolder;
-   margin-top: 10px;
 }
 
 .quiz-started{
@@ -107,16 +106,6 @@ main{
   
 }
 
-.option{
-  font-weight: normal;
-  font-size: medium;
-  background: rgb(240, 240, 255);
-  margin: 10px;
-  padding: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 .container button{
   all: unset;
   padding: 5px;
@@ -131,13 +120,22 @@ main{
   margin-left: 20px;
 }
 
+.option{
+  font-weight: normal;
+  font-size: medium;
+  background: rgb(240, 240, 255);
+  margin: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 .correctCounter{
   font-weight: bold;
 }
 
 @media (max-width: 500px){
-  .start-quiz{
+   .start-quiz{
     font-size: medium;
   }
   .container{

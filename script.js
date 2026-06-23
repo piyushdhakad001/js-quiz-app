@@ -26,6 +26,8 @@ const objQue = [
   },
 ];
 
+// -------------------------------
+
 const container = document.querySelector(".container");
 const startQuiz = document.querySelector(".start-quiz");
 
@@ -38,6 +40,7 @@ let quizEnded = false;
 const savedCount = localStorage.getItem("count");
 const savedAnswers = localStorage.getItem("userAnswer");
 const savedResult = localStorage.getItem("lastResult");
+
 
 
 if (savedCount !== null) {
@@ -58,6 +61,7 @@ startQuiz.addEventListener("click", () => {
   renderQuestion();
 });
 
+// -----Render Questions-------
 function renderQuestion() {
   localStorage.setItem("count", count);
   localStorage.setItem("userAnswer", JSON.stringify(userAnswer));
@@ -80,7 +84,6 @@ function renderQuestion() {
 
   const option4 = document.createElement("p");
   option4.textContent = `${objQue[count].option[3]}`;
-
 
   const previousButton = document.createElement("button");
   previousButton.classList.add("button","previousButton");
@@ -112,9 +115,12 @@ function renderQuestion() {
 
 
   questionElement.appendChild(question);
+  
   container.appendChild(questionElement);
 
-objQue[count].option.forEach((opt) => {
+ // --------------------------------------------------
+
+   objQue[count].option.forEach((opt) => {
     const option = document.createElement("p");
     option.textContent = opt;
     option.classList.add("option");
@@ -138,13 +144,11 @@ objQue[count].option.forEach((opt) => {
     questionElement.appendChild(option);
   });
 
-
   questionElement.appendChild(previousButton);
   questionElement.appendChild(nextButton);
 }
 
 // -----------Result Show------------
-
 function showResult() {
   localStorage.removeItem("count");
   localStorage.removeItem("userAnswer");
@@ -162,7 +166,6 @@ function showResult() {
     "lastResult",
     JSON.stringify({ correctAnswer, wrongAnswer }),
   );
-  
   localStorage.removeItem("count");
   localStorage.removeItem("userAnswer");
 
