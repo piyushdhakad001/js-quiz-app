@@ -130,3 +130,28 @@ main{
   
   margin-left: 20px;
 }
+
+
+.correctCounter{
+  font-weight: bold;
+}
+
+@media (max-width: 500px){
+  .start-quiz{
+    font-size: medium;
+  }
+  
+  .container .question, .option{
+    font-size: x-small;
+    font-weight: 600;
+  }
+   .container .button{
+     font-size: x-small;
+    font-weight: 600;
+    
+  }
+  .home{
+     font-size: x-small;
+    font-weight: 600;
+  }
+}
