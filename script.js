@@ -60,7 +60,42 @@ function renderQuestion() {
   const option4 = document.createElement("p");
   option4.textContent = `${objQue[count].option[3]}`;
 
-  questionElement.appendChild(question);
+
+  const previousButton = document.createElement("button");
+  previousButton.classList.add("button","previousButton");
   
+  previousButton.textContent = "Previous";
+
+  const nextButton = document.createElement("button");
+  nextButton.classList.add("button","nextButton");
+  nextButton.textContent = "next";
+
+  // --------Next Button-------------
+
+
+  nextButton.addEventListener("click", () => {
+    if (count < objQue.length - 1) {
+      count++;
+      renderQuestion();
+    } else {
+      showResult();
+    }
+  });
+
+  previousButton.addEventListener("click", () => {
+    if (count > 0) {
+      count--;
+    }
+    renderQuestion();
+  });
+
+
+  questionElement.appendChild(question);
   container.appendChild(questionElement);
+
+
+
+
+  questionElement.appendChild(previousButton);
+  questionElement.appendChild(nextButton);
 }
