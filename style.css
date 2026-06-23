@@ -69,6 +69,51 @@ header p{
    margin-top: 10px;
 }
 
+.quiz-started{
+  display: none;
+}
 
+main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  
+}
 
+.container{
+   background: rgb(239, 208, 208);
+   width: 90%;
+   box-sizing: border-box;
+    border-radius: 5px;
+   padding: 5px;  
+}
+
+.container p{
+  
+  padding-left: 10px;
+  
+  
+}
+
+.container .question{
+  border-radius: 5px;
+  width: 100%;
+  font-weight: bolder;
+  font-size: medium;
+ padding: 10px;
+  background: rgb(96, 96, 156);
+  
+  
+}
+
+.option{
+  font-weight: normal;
+  font-size: medium;
+  background: rgb(240, 240, 255);
+  margin: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
