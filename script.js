@@ -32,6 +32,16 @@ const startQuiz = document.querySelector(".start-quiz");
 let count = 0;
 let userAnswer = {};
 
+const savedCount = localStorage.getItem("count");
+const savedAnswers = localStorage.getItem("userAnswer");
+
+if (savedCount !== null) {
+  count = parseInt(savedCount);
+  userAnswer = savedAnswers ? JSON.parse(savedAnswers) : {};
+  startQuiz.innerHTML = "";
+  renderQuestion();
+}
+
 startQuiz.addEventListener("click", () => {
   startQuiz.innerHTML = "";
   renderQuestion();
