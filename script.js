@@ -176,3 +176,14 @@ function showResult() {
   container.appendChild(correctCounter);
   container.appendChild(wrongCounter);
 }
+
+// -------Home Button--------------
+const home = document.querySelector(".home-container");
+
+home.addEventListener("click", () => {
+  
+  localStorage.clear();
+  // localStorage.setItem('home', 'true');
+  location.reload();
+  
+});
