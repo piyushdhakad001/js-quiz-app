@@ -36,12 +36,20 @@ let wrongAnswer = 0;
 
 const savedCount = localStorage.getItem("count");
 const savedAnswers = localStorage.getItem("userAnswer");
+const savedResult = localStorage.getItem("lastResult");
+
 
 if (savedCount !== null) {
   count = parseInt(savedCount);
   userAnswer = savedAnswers ? JSON.parse(savedAnswers) : {};
   startQuiz.innerHTML = "";
   renderQuestion();
+}
+
+if (savedResult) {
+  const { correctAnswer, wrongAnswer } = JSON.parse(savedResult);
+  showResult();
+  startQuiz.innerHTML = "";
 }
 
 startQuiz.addEventListener("click", () => {
@@ -149,6 +157,10 @@ function showResult() {
     }
   });
 
+  localStorage.setItem(
+    "lastResult",
+    JSON.stringify({ correctAnswer, wrongAnswer }),
+  );
   
   localStorage.removeItem("count");
   localStorage.removeItem("userAnswer");
