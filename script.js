@@ -33,6 +33,7 @@ let count = 0;
 let userAnswer = {};
 let correctAnswer = 0;
 let wrongAnswer = 0;
+let quizEnded = false;
 
 const savedCount = localStorage.getItem("count");
 const savedAnswers = localStorage.getItem("userAnswer");
@@ -187,3 +188,16 @@ home.addEventListener("click", () => {
   location.reload();
   
 });
+
+// -----Enter key functionality---------
+  document.addEventListener('keydown', (e) =>{
+    if(e.key === 'Enter' && !quizEnded){
+       if (count < objQue.length - 1) {
+      count++;
+      renderQuestion();
+    } else {
+      quizEnded = true;
+      showResult();
+    }
+    }
+  });
