@@ -93,7 +93,29 @@ function renderQuestion() {
   questionElement.appendChild(question);
   container.appendChild(questionElement);
 
+objQue[count].option.forEach((opt) => {
+    const option = document.createElement("p");
+    option.textContent = opt;
+    option.classList.add("option");
 
+    if (userAnswer[count] === opt) {
+      option.style.backgroundColor = "lightblue";
+    }
+
+    option.addEventListener("click", () => {
+      userAnswer[count] = opt;
+      localStorage.setItem("userAnswer", JSON.stringify(userAnswer));
+
+      document.querySelectorAll(".option").forEach((el) => {
+        el.style.pointerEvents = "none";
+        el.style.opacity = "0.6";
+        el.style.backgroundColor = "";
+      });
+
+      option.style.backgroundColor = "lightblue";
+    });
+    questionElement.appendChild(option);
+  });
 
 
   questionElement.appendChild(previousButton);
